@@ -1,0 +1,14 @@
+FROM python:3.10
+
+WORKDIR /app
+
+COPY . .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+ENV API_HOST
+ENV API_PORT
+
+CMD uvicorn main:app --host ${API_HOST} --port ${API_PORT}
+
+
